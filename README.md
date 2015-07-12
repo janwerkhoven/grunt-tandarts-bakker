@@ -3,6 +3,9 @@
 ### What
 The website of a dentist in the Netherlands
 
+### Developed by
+Jan Werkhoven, in 2013
+
 ### Built with
 * Grunt
 * Handlebars
@@ -10,17 +13,13 @@ The website of a dentist in the Netherlands
 * jQuery
 * Photoshop
 
-### Developed by
-Jan Werkhoven, in 2013
-
 ### Setup
-
 Requirements:
 * Git
 * Node
 * Grunt
 
-Clone, build and run server:
+Clone repo, build dist and run server:
 
 1. `cd to/your/folder/`
 2. `git clone https://github.com/janwerkhoven/tandarts-bakker.nl.git .`
