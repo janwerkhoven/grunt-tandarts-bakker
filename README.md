@@ -1,7 +1,7 @@
 # tandarts-bakker.nl
-### What?
+### what
 The website of a dentist in the Netherlands
-### Built with?
+### built with
 Grunt, Handlebars, SASS, jQuery, Photoshop
-### By who
+### by who
 Jan Werkhoven
