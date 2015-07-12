@@ -1,7 +1,7 @@
 # tandarts-bakker.nl
 
 ### What
-The website of a dentist in the Netherlands
+The [website](http://tandarts-bakker.nl/) of a dentist in the Netherlands
 
 ### Developed by
 Jan Werkhoven, in 2013
