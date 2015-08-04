@@ -11,10 +11,7 @@ The [website](http://tandarts-bakker.nl/) of a dentist in the Netherlands (since
 * Photoshop
 
 #### Setup
-Requirements:
-* Git
-* Node
-* Grunt
+Requirements: Git, Node, Grunt
 
 Clone repo, build dist and run server:
 
