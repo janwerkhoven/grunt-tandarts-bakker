@@ -1,19 +1,16 @@
 # tandarts-bakker.nl
 
-### What
-The [website](http://tandarts-bakker.nl/) of a dentist in the Netherlands
+#### What
+The [website](http://tandarts-bakker.nl/) of a dentist in the Netherlands (built in 2013)
 
-### Developed by
-Jan Werkhoven, in 2013
-
-### Built with
+#### Built with
 * Grunt
 * Handlebars
 * SASS
 * jQuery
 * Photoshop
 
-### Setup
+#### Setup
 Requirements:
 * Git
 * Node
