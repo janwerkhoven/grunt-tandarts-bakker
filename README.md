@@ -1,7 +1,7 @@
 # tandarts-bakker.nl
 
 #### What
-The [website](http://tandarts-bakker.nl/) of a dentist in the Netherlands (since 2013)
+The [website](http://tandarts-bakker.nl/) of a dentist in the Netherlands. Built in 2013.
 
 #### Built with
 * Grunt
