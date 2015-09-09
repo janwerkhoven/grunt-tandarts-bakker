@@ -21,5 +21,5 @@ Clone repo, build dist and run server:
 5. Open [http://localhost:9000/](http://localhost:9000/) in your browser
 
 #### Change log
-- 2015 Sep - Total rebuild with Grunt
+- 2015 Sep - Total rebuild in Grunt
 - 2013 Apr - First build in Joomla
