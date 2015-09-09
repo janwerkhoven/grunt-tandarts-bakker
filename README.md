@@ -13,6 +13,7 @@ The [website](http://tandarts-bakker.nl/) of a dentist in the Netherlands. Built
 Requirements: [Git](https://git-scm.com/downloads), [Node](https://nodejs.org), [Grunt](http://gruntjs.com/)
 
 Clone repo, build dist and run server:
+
 1. `cd to/empty/folder/`
 2. `git clone git@github.com:janwerkhoven/tandarts-bakker.nl.git .`
 3. `npm install`
@@ -20,5 +21,5 @@ Clone repo, build dist and run server:
 5. Open [http://localhost:9000/](http://localhost:9000/) in your browser
 
 #### Change log
-2015 Total rebuild with Grunt
-2013 First build in Joomla
+- 2015 Sep - Total rebuild with Grunt
+- 2013 Apr - First build in Joomla
