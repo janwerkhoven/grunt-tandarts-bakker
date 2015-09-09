@@ -6,7 +6,7 @@
     "url": "git@github.com:janwerkhoven/tandarts-bakker.nl.git"
   },
   "private": true,
-  "copyright": "https://github.com/janwerkhoven/tandarts-bakker.nl/blob/master/LICENSE.md",
+  "copyright": "https://github.com/janwerkhoven/tandarts-bakker.nl/blob/master/COPYRIGHT.md",
   "devDependencies": {
     "async": "^1.0.0",
     "grunt": "^0.4.5",
