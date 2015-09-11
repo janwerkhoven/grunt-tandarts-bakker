@@ -6,6 +6,6 @@ deploy:
   provider: s3
   access_key_id: "AKIAIB5N4MKGC2GL5XBQ"
   secret_access_key: "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"
-  bucket: "S3 Bucket"
+  bucket: "tandarts-bakker.nl"
   skip_cleanup: true
   region: "Bucket region"
