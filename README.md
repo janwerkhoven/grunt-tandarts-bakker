@@ -4,7 +4,7 @@
 The [website](http://www.tandarts-bakker.nl/) of a dentist in the Netherlands.
 
 #### Highlights
-* Originally built in Joomla, PHP, CSS, JS (2013)
+* Originally built in Joomla, PHP, CSS, JS (2011)
 * Later rebuilt in Grunt, Handlebars, SASS, JS, jQuery, Atom & Git (2015)
 * Served on self-managed Ubuntu / Nginx server
 * Deployed with Git hooks
