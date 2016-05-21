@@ -1,14 +1,16 @@
 {
   "name": "tandarts-bakker",
-  "version": "2.0.1",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "git@github.com:janwerkhoven/tandarts-bakker.nl.git"
+    "url": "git@github.com:janwerkhoven/colettewerden.com.git"
   },
   "private": true,
-  "copyright": "https://github.com/janwerkhoven/tandarts-bakker.nl/blob/master/COPYRIGHT.md",
+  "copyright": "https://github.com/janwerkhoven/grunt-tandarts-bakker/blob/production/COPYRIGHT.md",
   "devDependencies": {
     "async": "^1.0.0",
+    "autoprefixer": "^6.3.1",
+    "cssnano": "^3.4.0",
     "grunt": "^0.4.5",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-concat": "^0.5.0",
@@ -20,7 +22,11 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-handlebars-layouts": "^0.2.0",
     "grunt-html-prettyprinter": "^1.5.0",
+    "grunt-postcss": "^0.7.1",
     "grunt-static-handlebars": "^0.9.0",
-    "handlebars-helpers": "^0.5.8"
+    "grunt-text-replace": "^0.4.0",
+    "grunt-xml-sitemap": "^0.2.0",
+    "handlebars-helpers": "^0.5.8",
+    "pixrem": "^3.0.0"
   }
 }

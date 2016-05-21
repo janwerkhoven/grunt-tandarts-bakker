@@ -3,7 +3,9 @@ module.exports = function(grunt) {
   'use strict';
 
   grunt.initConfig({
+
     pkg: grunt.file.readJSON('package.json'),
+
     connect: {
       server: {
         options: {
@@ -15,65 +17,81 @@ module.exports = function(grunt) {
         }
       }
     },
+
     watch: {
       handlebars: {
-        files: ['app/templates/**/*.hbs', 'app/templates/**/*.json', 'app/templates/layout.html '],
-        tasks: 'handlebarslayouts'
+        files: ['src/templates/**/*.hbs', 'src/templates/**/*.json', 'src/templates/layout.html '],
+        tasks: ['handlebarslayouts', 'sitemap']
       },
       sass: {
-        files: ['app/sass/**/*.scss'],
-        tasks: ['sass']
+        files: ['src/styles/**/*.scss'],
+        tasks: ['sass', 'postcss']
       },
       js: {
-        files: ['app/js/**/*.js'],
-        tasks: ['jshint', 'concat', 'uglify']
+        files: ['src/js/**/*.js'],
+        tasks: ['jshint', 'uglify', 'concat', 'clean:temp']
+      },
+      assets: {
+        files: ['src/public/**/*'],
+        tasks: ['copy']
       },
       gruntfile: {
         files: ['Gruntfile.js'],
-        tasks: ['handlebarslayouts', 'sass', 'jshint', 'concat', 'uglify']
+        tasks: ['build']
       },
       options: {
         livereload: true,
       }
     },
+
     handlebarslayouts: {
       dist: {
         files: [{
           expand: true,
-          cwd: 'app/templates/',
+          cwd: 'src/templates/',
           src: ['**/*.hbs', '!partials/*'],
           dest: 'dist/',
           ext: '.html',
         }],
         options: {
-          partials: ['app/templates/partials/*.hbs', 'app/templates/layout.html'],
-          basePath: 'app/templates/',
-          modules: ['app/templates/helpers/helpers-*.js'],
-          context: {
-            title: 'MOSHI MOSH <%= grunt.filename %>',
-            projectName: 'Grunt handlebars layout',
-            items: [
-              'apple',
-              'orange',
-              'banana'
-            ]
-          }
+          partials: ['src/templates/partials/*.hbs', 'src/templates/layout.html'],
+          basePath: 'src/templates/',
+          modules: ['src/templates/helpers/helpers-*.js']
         }
       }
     },
+
     sass: {
       dist: {
         options: {
           style: 'compressed',
+          sourcemap: 'none',
           noCache: true
         },
         files: {
-          'dist/assets/css/main.min.css': 'app/sass/main.scss'
+          'dist/assets/css/main.min.css': ['src/styles/main.scss']
         }
       }
     },
+
+    postcss: {
+      options: {
+        map: false,
+        processors: [
+          require('pixrem')(),
+          require('autoprefixer')({
+            browsers: ['> 1% in NL']
+          }),
+          require('cssnano')()
+        ]
+      },
+      dist: {
+        src: 'dist/assets/css/main.min.css'
+      }
+    },
+
     jshint: {
-      files: ['app/js/*.js'],
+      files: ['src/js/main.js'],
       options: {
         globals: {
           jQuery: true,
@@ -83,37 +101,81 @@ module.exports = function(grunt) {
         }
       }
     },
+
+    uglify: {
+      dist: {
+        files: {
+          'temp/main.min.js': ['src/js/main.js']
+        }
+      }
+    },
+
     concat: {
       options: {
         separator: ';\n\n',
       },
       dist: {
-        src: ['app/js/libs/jquery.js', 'app/js/libs/velocity.js', 'app/js/libs/modernizr.js', 'app/js/main.js'],
-        dest: 'dist/assets/js/main.js',
+        files: {
+          'dist/assets/js/main.min.js': ['src/js/vendor/jquery.min.js', 'src/js/vendor/velocity.min.js', 'temp/main.min.js']
+        },
       },
     },
-    uglify: {
-      dist: {
-        files: {
-          'dist/assets/js/main.min.js': ['dist/assets/js/main.js']
-        }
-      }
-    },
+
     clean: {
-      build: {
+      dist: {
         src: ['dist/']
+      },
+      temp: {
+        src: ['temp/']
       }
     },
+
     copy: {
       main: {
         files: [{
           expand: true,
-          cwd: 'public/',
+          cwd: 'src/public/',
           src: ['**'],
           dest: 'dist/'
         }]
       }
+    },
+
+    // BUG: Adds /dist to every URL...
+    xml_sitemap: {
+      custom_options: {
+        options: {
+          siteRoot: 'http://www.tandarts-bakker.nl/',
+          changefreq: 'monthly',
+          priority: '0.5',
+          dest: 'dist/'
+        },
+        files: [{
+          expand: true,
+          cwd: 'dist/',
+          src: ['**/*.html', '!**/google*.html'],
+        }]
+      }
+    },
+
+    // Temporary until sitemap bug is fixed
+    replace: {
+      sitemap_dist: {
+        src: 'dist/sitemap.xml',
+        dest: 'dist/sitemap.xml',
+        replacements: [{
+          from: '/dist/',
+          to: '/'
+        }, {
+          from: '<feed>',
+          to: ''
+        }, {
+          from: '</feed>',
+          to: ''
+        }]
+      }
     }
+
   });
 
   // load tasks
@@ -122,15 +184,19 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks("grunt-handlebars-layouts");
   grunt.loadNpmTasks('grunt-html-prettyprinter');
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-postcss');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-xml-sitemap');
+  grunt.loadNpmTasks('grunt-text-replace');
 
   // commands
-  grunt.registerTask('default', ['clean', 'copy', 'handlebarslayouts', 'sass', 'jshint', 'concat', 'uglify', 'connect', 'watch']);
-  grunt.registerTask('build', ['clean', 'copy', 'handlebarslayouts', 'sass', 'jshint', 'concat', 'uglify']);
-  grunt.registerTask('server', ['connect', 'watch']);
+  grunt.registerTask('default', ['build', 'serve']);
+  grunt.registerTask('build', ['clean:dist', 'copy', 'handlebarslayouts', 'sass', 'postcss', 'jshint', 'uglify', 'concat', 'sitemap', 'clean:temp']);
+  grunt.registerTask('sitemap', ['xml_sitemap', 'replace:sitemap_dist']);
+  grunt.registerTask('serve', ['connect', 'watch']);
 
 };
