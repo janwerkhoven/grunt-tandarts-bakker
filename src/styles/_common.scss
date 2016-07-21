@@ -12,7 +12,7 @@ body {
   line-height: 100%;
   color: #576b83;
   -webkit-font-smoothing: antialiased;
-  
+
   .wrapper {
     max-width: 920px;
     margin: 15px auto 50px;
@@ -20,7 +20,7 @@ body {
     @include box-shadow(0 3px 24px 0 rgba(0,0,0,0.5));
     @include border-radius(3px);
   }
-  
+
   .bg {
     position: fixed;
     bottom: 0;
@@ -35,7 +35,7 @@ body {
     background: -o-linear-gradient(top, $bakker-bg-1 0%,$bakker-bg-2 100%);
     background: -ms-linear-gradient(top, $bakker-bg-1 0%,$bakker-bg-2 100%);
     background: linear-gradient(to bottom, $bakker-bg-1 0%,$bakker-bg-2 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='$bakker-bg-1', endColorstr='$bakker-bg-2',GradientType=0 );
+    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr= '$bakker-bg-1', endColorstr='$bakker-bg-2',GradientType=0 );
   }
 }
 
@@ -51,7 +51,7 @@ h2 {
   font-size: 34px;
   line-height: 100%;
   margin: 0 0 60px;
-  font-family: "Open Sans","OpenSans","Arial","Helvetica",sans-serif;
+  font-family: 'Open Sans','OpenSans','Arial','Helvetica',sans-serif;
 }
 
 h3 {
@@ -71,23 +71,26 @@ p {
   line-height: 150%;
   padding: 0 4px;
   max-width: 600px;
-  
+
   strong {
     font-weight: $bold;
+  }
+  em {
+    background: yellow;
+    font-style: normal;
   }
 }
 
 a {
   color: #ca9028;
-  
   &:hover {
     text-decoration: none;
     color: orange;
   }
 }
 
-button,
-a.button {
+a.button,
+button {
   position: relative;
   display: inline-block;
   font-size: 32px;
@@ -103,18 +106,16 @@ a.button {
   @include box-shadow(0 3px 0 0 orange);
   @include border-radius(5px);
   @include prevent-user-select;
-  
+
   &.small {
     font-size: 28px;
     line-height: 38px;
     padding: 3px 20px 0;
   }
-  
   &:hover {
     background: lighten(orange, 7%);
     @include box-shadow(0 3px 0 0 lighten(orange, 7%));
   }
-  
   &:active {
     margin-top: 2px;
     @include box-shadow(0 1px 0 0 lighten(orange, 7%));
@@ -129,7 +130,7 @@ ul {
   padding: 0;
   margin: 0;
   list-style: none;
-  
+
   li {
     margin: 0;
     line-height: 150%;
@@ -137,11 +138,11 @@ ul {
   }
 }
 
-header,
 footer,
+header,
 section {
   position: relative;
-  
+
   .inner {
     width: 100%;
     max-width: 960px;
@@ -154,10 +155,10 @@ section {
 header {
   .inner {
     padding: 0;
-    
+
     h1 {
       padding: 28px 0 13px 41px;
-      
+
       a {
         img {
           display: inline-block;
@@ -166,67 +167,65 @@ header {
         }
       }
     }
-    
+
     nav {
-      background: url("../img/bg-menu.png") no-repeat;
+      background: url('../img/bg-menu.png') no-repeat;
       margin-left: -20px;
       padding: 14px 0 0 70px;
-      
-      >ul {
+
+      > ul {
         display: inline-block;
         margin: 0 auto;
-        
         &:after {
           @include clearfix;
         }
-        
-        >li {
+
+        > li {
           float: left;
           position: relative;
-          
           &:hover {
-            >a {
+            > a {
               span {
                 display: block;
               }
             }
-            
-            >ul {
+
+            > ul {
               display: block;
             }
           }
-          
-          >a {
+
+          > a {
             font-size: 18px;
             text-decoration: none;
             color: #fff;
             line-height: 45px;
             display: inline-block;
             padding: 0 20px;
-            
+
             span {
               display: none;
               width: 45px;
               height: 26px;
               position: absolute;
               top: 20px;
-              background: url("../img/arrow-down.png");
+              background: url('../img/arrow-down.png');
               top: -14px;
               left: 50%;
               margin-left: -25px;
             }
           }
-          
-          >ul {
+
+          > ul {
             display: none;
             position: absolute;
             top: 45px;
             left: 10px;
             z-index: 1;
-            
+
             > li {
-              >a {
-                background: url("../img/bg-menu-item.png") no-repeat;
+              > a {
+                background: url('../img/bg-menu-item.png') no-repeat;
                 line-height: 30px;
                 height: 30px;
                 padding: 0 10px;
@@ -236,7 +235,6 @@ header {
                 display: inline-block;
                 text-decoration: none;
                 width: 100%;
-                
                 &:hover {
                   opacity: 0.8;
                 }
@@ -265,22 +263,22 @@ footer {
     padding: 0;
     height: 60px;
     text-align: center;
-    
+
     .bg {
-      background: url("../img/bg-footer.png") no-repeat;
+      background: url('../img/bg-footer.png') no-repeat;
       position: absolute;
       left: -20px;
       top: 0;
       height: 50px;
       width: 960px;
       z-index: 1;
-      
+
       p {
         font-size: 13px;
         color: #fff;
         margin: 16px 0 0;
         max-width: none;
-        
+
         a {
           color: #fff;
         }
@@ -294,7 +292,7 @@ footer {
     float: left;
     margin: 0 40px 20px 0;
   }
-  
+
   p {
     max-width: 760px;
   }
@@ -303,19 +301,18 @@ footer {
 #landing {
   .images {
     margin: 30px 0;
-    
     &:after {
       @include clearfix;
     }
-    
+
     .left {
       float: left;
     }
-    
+
     .right {
       float: right;
     }
-    
+
     p {
       max-width: 640px;
     }
@@ -327,12 +324,12 @@ footer {
     &:after {
       @include clearfix;
     }
-    
+
     img {
       float: left;
       margin: 0 40px 20px 0;
     }
-    
+
     p {
       max-width: 720px;
     }
@@ -344,12 +341,12 @@ footer {
     &:after {
       @include clearfix;
     }
-    
+
     img {
       float: left;
       margin: 0 40px 20px 0;
     }
-    
+
     p {
       max-width: 750px;
     }
@@ -370,18 +367,17 @@ footer {
 #team {
   ul {
     margin-top: 70px;
-    
     &:after {
       @include clearfix;
     }
-    
+
     li {
       float: left;
       width: 50%;
       height: 470px;
       padding: 0;
       text-align: center;
-      
+
       img {
         display: inline-block;
       }
@@ -392,13 +388,13 @@ footer {
 #spoedgeval {
   ul {
     margin-left: 21px;
-    
+
     li {
       list-style: disc;
       padding-left: 5px;
     }
   }
-  
+
   p {
     max-width: 540px;
   }
@@ -408,7 +404,7 @@ footer {
   h3 {
     margin: 0 0 20px;
   }
-  
+
   ul {
     li {
       span {
@@ -417,7 +413,7 @@ footer {
       }
     }
   }
-  
+
   iframe {
     margin: 40px 0 0;
     border: 1px solid #aeaeae !important;
