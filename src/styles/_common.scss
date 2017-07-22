@@ -420,3 +420,19 @@ footer {
     @include border-box;
   }
 }
+
+#warning {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  background: #ffdb80;
+  padding: 20px;
+  width: 320px;
+  box-shadow: 0 3px 10px RGBA(0,0,0,0.2);
+  border: 1px solid #ceb882;
+  p {
+    color: #444444;
+    margin: 0;
+    padding: 0;
+  }
+}
